@@ -1,7 +1,5 @@
-
-    let carbonFootprintPoints = 0;
-    const numberInHousehold = 3;
-
+function determineHouseholdPts(numberInHousehold) {
+    console.log("Inside the function");
     if (numberInHousehold === 1) {
       carbonFootprintPoints = carbonFootprintPoints + 14;
     } else if (numberInHousehold === 2) {
@@ -18,5 +16,13 @@
       carbonFootprintPoints = carbonFootprintPoints + 2;
     }
       console.log(`Based on the number of members in the household of ${numberInHousehold}, the points would be ${carbonFootprintPoints}.`);
+  }
   
-      
+  let carbonFootprintPoints = 0;
+  //const numberInHousehold = 3;
+  
+  
+  // global scope
+  
+  determineHouseholdPts(3)
+  determineHouseholdPts(4)
