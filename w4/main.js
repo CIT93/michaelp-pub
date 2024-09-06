@@ -43,7 +43,13 @@ function start(houseHoldMembers, houseSize) {
 }
 
 function displayOutput() {
-
+  for (arr of cfpData){
+    console.log(arr);
+    const output = document.getElementById("output");
+    const newP = document.createElement("p");
+    newP.textContent = `A ${arr[0]}-person household is scored with ${arr[2]} points and a home described as ${arr[1]}-sized is scored with ${arr[3]} points, so the total would be ${arr[4]} carbon footprint points.`;
+    output.appendChild(newP);
+  }
 }
 
 start(5, "apt");
@@ -55,4 +61,4 @@ start(6, "large");
 start(10, "apt");
 
 
-displayOutput()
+displayOutput();
