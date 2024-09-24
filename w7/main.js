@@ -1,8 +1,6 @@
 const FORM = document.getElementById("form");
 const OUTPUT = document.getElementById("output");
-
 const cfpData = [];
-
 
 function determineHouseSizePts(size) {
   let houseSizePoints = 0;
@@ -38,10 +36,22 @@ function determineHouseholdPts(numberInHousehold) {
   return houseHoldPoints;
 }
 
+function displayOutObj(obj) {
+  console.log(obj);
+  const output = document.getElementById("output");
+  const newH2 = document.createElement("h2");
+  newH2.textContent = `Carbon Footprint ${obj.cfpTotal}`;
+  output.appendChild(newH2);
+  const newH3 = document.createElement("h3");
+  newH3.textContent = `Based on number in and size of home`;
+  output.appendChild(newH3);
+  const newP = document.createElement("p");
+  newP.textContent = `This number is based on the number of people in the house of ${obj.houseM} (score: ${obj.houseMPTS}),`;
+  newP.textContent += ` and a ${obj.houseS} size of home (score: ${obj.houseSPTS}).`;
+  output.appendChild(newP);
+}
+
 function start(houseHoldMembers, houseSize) {
-  const firstName = FORM.firstname.value;
-  const lastName = FORM.lastname.value;
-  const name = `${firstName} ${lastName}`;
   const houseHoldPTS = determineHouseholdPts(houseHoldMembers);
   const houseSizePTS = determineHouseSizePts(houseSize);
   const total = houseHoldPTS + houseSizePTS;
@@ -51,7 +61,6 @@ function start(houseHoldMembers, houseSize) {
     houseMPTS: houseHoldPTS,
     houseSPTS: houseSizePTS,
     cfpTotal: total,
-    name: name,
   });
 }
 
@@ -61,7 +70,7 @@ function displayOutput() {
     const newH2 = document.createElement("h2");
     newH2.textContent = `Carbon Footprint ${obj.cfpTotal}`;
     const newH3 = document.createElement("h3");
-    newH3.textContent = `Based on number in and size of home for ${obj.name}`
+    newH3.textContent = `Based on number in and size of home`
     const newP = document.createElement("p");
     newP.textContent = `This number is based on the number of people in the house of ${obj.houseM} (score: ${obj.houseMPTS}),`;
     newP.textContent += ` and a ${obj.houseS} size of home (score: ${obj.houseSPTS}).`;
@@ -73,6 +82,8 @@ function displayOutput() {
 
 FORM.addEventListener('submit', function(e){
   e.preventDefault();
+  const firstName = FORM.firstname.value;
+  const lastName = FORM.lastname.value;
   const houseHoldMembers = parseInt(FORM.housem.value);
   const houseSize = FORM.houses.value;
   start(houseHoldMembers, houseSize);
@@ -80,3 +91,7 @@ FORM.addEventListener('submit', function(e){
   displayOutput();
   FORM.reset();
 })
+
+// the apartment score is incorrect because its supposed to be scored with 2 points, this is because the label is not valued as apt.
+
+// because the js needs the correct values in order to run the calculation properly
