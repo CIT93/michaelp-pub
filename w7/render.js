@@ -1,5 +1,5 @@
 const TBL = document.getElementById("tab-data");
- 
+
 function renderTblHeading() {
   const table = document.createElement("table");
   const thead = document.createElement("thead");
@@ -18,6 +18,7 @@ function renderTblHeading() {
   });
   thead.appendChild(tr);
   table.appendChild(thead);
+
   return table;
 }
 
@@ -25,11 +26,15 @@ function renderTbl(data) {
   const table = renderTblHeading();
   const tbody = document.createElement("tbody");
   const tr = document.createElement("tr");
-  const trTextArr = ["Michael", 3, "Large", 20];
-  trTextArr.forEach(function (text) {
-    const td = document.createElement("td");
-    td.textContent = text;
-    tr.appendChild(td);
+  data.forEach(function (data) {
+    const tr = document.createElement("tr");
+    const tdHouseHold = document.createElement("td");
+    tdHouseHold.textContent = data.houseMPTS;
+    const tdHouseSize = document.createElement("td");
+    tdHouseSize.textContent = data.houseSPTS;
+    const tdFootprint = document.createElement("td");
+    tdFootprint.textContent = data.cfpTotal;
+    tbody.append(tdHouseHold, tdHouseSize, tdFootprint);
   });
   const td = document.createElement("td");
   const btnEdit = document.createElement("button");
@@ -45,4 +50,4 @@ function renderTbl(data) {
   TBL.appendChild(table);
 }
 
-export {renderTbl, renderTblHeading};
+export { renderTbl, renderTblHeading };
