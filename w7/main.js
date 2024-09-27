@@ -1,3 +1,5 @@
+import { renderTbl } from "./render.js";
+
 const FORM = document.getElementById("form");
 const OUTPUT = document.getElementById("output");
 const cfpData = [];
@@ -64,23 +66,8 @@ function start(houseHoldMembers, houseSize) {
   });
 }
 
-function displayOutput() {
-  for (obj of cfpData) {
-    console.log(obj)
-    const newH2 = document.createElement("h2");
-    newH2.textContent = `Carbon Footprint ${obj.cfpTotal}`;
-    const newH3 = document.createElement("h3");
-    newH3.textContent = `Based on number in and size of home`
-    const newP = document.createElement("p");
-    newP.textContent = `This number is based on the number of people in the house of ${obj.houseM} (score: ${obj.houseMPTS}),`;
-    newP.textContent += ` and a ${obj.houseS} size of home (score: ${obj.houseSPTS}).`;
-    OUTPUT.appendChild(newH2);
-    OUTPUT.appendChild(newH3);
-    OUTPUT.appendChild(newP);
-  }
-}
 
-FORM.addEventListener('submit', function(e){
+FORM.addEventListener("submit", function (e) {
   e.preventDefault();
   const firstName = FORM.firstname.value;
   const lastName = FORM.lastname.value;
@@ -88,10 +75,7 @@ FORM.addEventListener('submit', function(e){
   const houseSize = FORM.houses.value;
   start(houseHoldMembers, houseSize);
   OUTPUT.innerHTML = "";
-  displayOutput();
+  //displayOutput();
+  renderTbl(cfpData);
   FORM.reset();
-})
-
-// the apartment score is incorrect because its supposed to be scored with 2 points, this is because the label is not valued as apt.
-
-// because the js needs the correct values in order to run the calculation properly
+});
