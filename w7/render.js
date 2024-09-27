@@ -50,4 +50,5 @@ function renderTbl(data) {
   TBL.appendChild(table);
 }
 
+
 export { renderTbl, renderTblHeading };
