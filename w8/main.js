@@ -3,7 +3,6 @@ import { determineHouseSizePts, determineHouseholdPts } from "./cfpt.js";
 
 const FORM = document.getElementById("form");
 const OUTPUT = document.getElementById("output");
-const INDEX = document.getElementById("index");
 const cfpData = [];
 
 function start(first, last, houseHoldMembers, houseSize) {
@@ -31,6 +30,5 @@ FORM.addEventListener("submit", function (e) {
   OUTPUT.innerHTML = "";
   //displayOutput();
   renderTbl(cfpData);
-  FORM[INDEX];
   FORM.reset();
 });
