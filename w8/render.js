@@ -12,7 +12,6 @@ function renderTblHeading() {
     "Footprint",
     "Actions",
   ];
-
   headingTextArr.forEach(function (text) {
     const th = document.createElement("th");
     th.textContent = text;
@@ -23,6 +22,8 @@ function renderTblHeading() {
 
   return table;
 }
+
+
 function renderTblBtn(index, data) {
   const td = document.createElement("td");
   const btnEdit = document.createElement("button");
@@ -34,12 +35,17 @@ function renderTblBtn(index, data) {
   btnDel.addEventListener("click", function (e) {
     console.log("Hello from inside the delete button");
     console.log(e);
-    data.splice(index, 1);
     renderTbl(data);
+    data.splice(index, 1);
   });
-  btnEdit.addEventListener("click", function (e) {});
+  
+  btnEdit.addEventListener("click", function (e) {
+  data.splice(index, 1);
+  });
   return td;
 }
+
+
 function renderTblBody(data) {
   const tbody = document.createElement("tbody");
   data.forEach(function (obj, index) {
@@ -66,4 +72,4 @@ function renderTbl(data) {
   TBL.appendChild(table);
 }
 
-export { renderTbl };
+export {renderTbl};
