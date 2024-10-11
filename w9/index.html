@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 9 - Carbon Footprint - Pub
+  </title>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+  <script type="module" src="main.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <form id="form">
+    <fieldset>
+      <legend>Calculating Your Carbon Footprint Points</legend>
+      <div id="error"></div>
+      <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstname" />
+        <span id="firstNameError" class="error" role="alert"></span>
+      </div>
+      <div>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastname" />
+        <span id="lastNameError" class="error" role="alert"></span>
+      </div>
+      <script>
+        const validateField = (event) => {
+          const field = event.target.value;
+          const fieldId = event.target.id;
+          const fieldError = document.getElementById(`${fieldId}Error`);
+          if (field === "") {
+            fieldError.textContent = `${fieldId} is required`;
+            event.target.classList.add("invalid");
+          } else {
+            fieldError.textContent = "";
+            event.target.classList.add("invalid");
+          }
+        };
+        document.getElementById("firstName").addEventListener("blur", validateField);
+        document.getElementById("lastName").addEventListener("blur", validateField);
+        document.getElementById("form").addEventListener
+          ("submit",
+            function (event) {
+              event.preventDefault();
+              const firstNameIsValid =
+                document.getElementById("firstName").value !== "";
+              const lastNameIsValid = document.getElementById("lastName").value !== "";
+              if (firstNameIsValid && lastNameIsValid) {
+                alert(
+                  "Form is valid. You can proceed with submitting the form to the server."
+                );
+              }
+            });
+      </script>
+      <div>
+        <label for="">Count the members of your household </label>
+        <input type="number" name="housem" min="1" max="6" required />
+      </div>
+      <div>
+        <label for="">Consider the size of your home</label>
+        <!-- <input type="text" name="houses" required /> -->
+        <select name="houses" required>
+          <option value="">---Please enter size of home---</option>
+          <option value="apt">Apartment</option>
+          <option value="large">Large</option>
+          <option value="medium">Medium</option>
+          <option value="small">Small</option>
+        </select>
+      </div>
+      <button type="submit">Submit</button>
+    </fieldset>
+  </form>
+  <div id="output"></div>
+  <div id="tab-data"></div>
+</body>
+
+</html>
