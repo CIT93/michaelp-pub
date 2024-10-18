@@ -3,7 +3,8 @@ import {determineHouseSizePts, determineHouseholdPts} from "./cfpt.js";
 import {FORM, FNAME, LNAME, SUBMIT} from "./global.js";
 import {saveToLS, cfpData} from "./storage.js";
 
-const start = function(first, last, houseHoldMembers, houseSize) {
+const start = (first, last, ...points) => {
+  const [houseHoldMembers, houseSize] = points;
   const houseHoldPTS = determineHouseholdPts(houseHoldMembers);
   const houseSizePTS = determineHouseSizePts(houseSize);
   const total = houseHoldPTS + houseSizePTS;
@@ -17,11 +18,11 @@ const start = function(first, last, houseHoldMembers, houseSize) {
     cfpTotal: total,
   });
 }
-
+start("Test", "w", 5, "large");
 renderTbl(cfpData);
 
 //Function to validate a single field
-const validateField = function(event) {
+const validateField = event => {
   const field = event.target.value;
   const fieldId = event.target.id;
   const fieldError = document.getElementById(`${fieldId}Error`);
@@ -44,7 +45,7 @@ document.getElementById("form").addEventListener
 });
 
 
-FORM.addEventListener("submit", function (e) {
+FORM.addEventListener("submit", e => {
   e.preventDefault();
   if (FNAME.value !== "" && LNAME.value !== "") {
    SUBMIT.textContent = "";
@@ -58,22 +59,28 @@ FORM.addEventListener("submit", function (e) {
 
 });
 
+//rest operator
+// const add2 = function(...a) {  //parameter, inserts value from the argument, setting this value to default is called edge-case
+//   return 2 + a[3];  //returns result as 6 because "4" is the third value in the argument
+// }
 
-const add2 = function(...a) {  //parameter, inserts value from the argument, setting this value to default is called edge-case
-  return 2 + a[3];  //returns result as 6 because "4" is the third value in the argument
-}
+//const result = add2(1, 2, 3, 4, 5); //argument
 
-const result = add2(1, 2, 3, 4, 5); //argument
-console.log (result);
 
-//spread argument
+//arrow function
+// const add2 = (a) => 2 + a; //can only be done with 1 expression
+
+// const result = add2(100);
+// console.log(result);
+
+
 
 //IIFE
 
-const a = 4;
+// const a = 4;
 
-(function(add2){
-  console.log("inside IIFE");
-  console.log(a);
-})(a);
+// (function(add2){
+//   console.log("inside IIFE");
+//   console.log(a);
+// })(a);
 
