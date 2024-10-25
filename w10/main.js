@@ -3,23 +3,40 @@ import {determineHouseSizePts, determineHouseholdPts} from "./cfpt.js";
 import {FORM, FNAME, LNAME, SUBMIT} from "./global.js";
 import {saveToLS, cfpData} from "./storage.js";
 
-const start = (first, last, ...points) => {
-  const [houseHoldMembers, houseSize] = points;
-  const houseHoldPTS = determineHouseholdPts(houseHoldMembers);
-  const houseSizePTS = determineHouseSizePts(houseSize);
+// const start = (first, last, ...points) => {
+//   const [houseHoldMembers, houseSize] = points;
+//   const houseHoldPTS = determineHouseholdPts(houseHoldMembers);
+//   const houseSizePTS = determineHouseSizePts(houseSize);
+//   const total = houseHoldPTS + houseSizePTS;
+//   cfpData.push({
+//     firstName: first,
+//     lastName: last,
+//     houseM: houseHoldMembers,
+//     houseS: houseSize,
+//     houseMPTS: houseHoldPTS,
+//     houseSPTS: houseSizePTS,
+//     cfpTotal: total,
+//   });
+// }
+// start("Test", "w", 5, "large");
+// renderTbl(cfpData);
+
+
+
+const start = (...i) => {
+  const houseHoldPTS = determineHouseholdPts(i[2]);
+  const houseSizePTS = determineHouseSizePts(i[4]);
   const total = houseHoldPTS + houseSizePTS;
   cfpData.push({
-    firstName: first,
-    lastName: last,
-    houseM: houseHoldMembers,
-    houseS: houseSize,
+    firstName: i[0],
+    lastName: i[1],
+    houseM: i[2],
+    houseS: i[3],
     houseMPTS: houseHoldPTS,
     houseSPTS: houseSizePTS,
     cfpTotal: total,
   });
 }
-start("Test", "w", 5, "large");
-renderTbl(cfpData);
 
 //Function to validate a single field
 const validateField = event => {
