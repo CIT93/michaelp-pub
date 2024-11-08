@@ -21,7 +21,7 @@ function onError (data) {
     console.log(`Error: ${data}`)
 }
 function onFinally () {
-    console.log(Complete)
+    console.log(`Complete`)
 }
 
 const startWorkout = (type, reps, time, fn) => {
