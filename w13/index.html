@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 13 Code Challenge - Pub</title>
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+        <form id= "form">
+          <fieldset>
+            <legend>Time to get FIT!</legend>
+            <p class="block">
+            <label>Type of Exercise</label>
+            <input name="type" type="text" maxlength="10" required>
+          </p>
+          <p class="block">
+            <label>Target Number of Reps</label>
+            <input name="reps" type="number"  max="30" required>
+          </p>
+          <p class="block">
+            <label>Time in Minutes</label>
+            <input name="time" type="number" step="any"  required>
+          </p>
+          <p class="block">
+            <label>Get Ready</label>
+            <button>submit</button>
+          </p>
+          </fieldset>
+        </form>
+
+        <section class="center" id="output">
+            <h2>Submit to start!</h2>
+         </section>
+    </main>
+  </body>
+</html>
+

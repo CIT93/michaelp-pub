@@ -1,0 +1,13 @@
+html {
+    font-size: larger;
+    color: rgb(233, 234, 235);
+    text-align: center;
+} 
+body {
+    background-color: rgb(200, 197, 197);
+    color: #000000;
+}
+fieldset {
+    border: 2px solid #000000;
+    padding: 10px;
+}
