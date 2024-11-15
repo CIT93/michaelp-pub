@@ -1,3 +1,5 @@
+const OUTPUT = document.getElementById('output');
+
 const url =
 `https://jsonplaceholder.typicode.com/comments/`
 
@@ -7,7 +9,7 @@ function renderComments(comments) {
 comments.forEach(comment => {
     const commEl = document.createElement('div');
     commEl.textContent = comment.body
-    document.body.appendChild(commEl);
+    OUTPUT.append(commEl);
 });
   
 }
