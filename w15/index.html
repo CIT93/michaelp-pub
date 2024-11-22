@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 15 - FP - Pub
+  </title>
+  <script type="module" src="main.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <form id="form">
+    <fieldset>
+      <legend>Calculating Your Carbon Footprint Points</legend>
+      <div id="error"></div>
+      <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstname" maxlength="25"/>
+        <span id="firstNameError" class="error"></span>
+      </div>
+      <div>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastname" maxlength="25"/>
+        <span id="lastNameError" class="error"></span>
+      </div>
+      <div>
+        <label for="">Count the members of your household </label>
+        <input type="number" name="housem" min="1" max="6" required />
+      </div>
+      <div>
+        <label for="">Consider the size of your home</label>
+        <select name="houses" required>
+          <option value="">---Please enter size of home---</option>
+          <option value="apt">Apartment</option>
+          <option value="large">Large</option>
+          <option value="medium">Medium</option>
+          <option value="small">Small</option>
+        </select>
+      </div>
+        <label for="">Evaluate your food choices </label>
+        <select name="foods" required>
+          <option value="">---Please enter diet type---</option>
+          <option value="Domestic meat on a daily basis">Domestic meat on a daily basis</option>
+          <option value="Domestic meat a few times per week">Domestic meat a few times per week</option>
+          <option value="Vegetarian">Vegetarian</option>
+          <option value="Vegan or only wild meat">Vegan or only wild meat</option>
+          <option value="Mostly prepackaged convenience food">Mostly prepackaged convenience food</option>
+          <option value="A balance of fresh and convenience food">A balance of fresh and convenience food</option>
+          <option value="Only fresh, locally grown, or hunted food">Only fresh, locally grown, or hunted food</option>
+        </select>
+        <div>
+        </label>
+      <button type="submit">Submit</button>
+      <span id="submitError" class="error"></span>
+    </fieldset>
+  </form>
+  <div id="tab-data"></div>
+</body>
+
+</html>
