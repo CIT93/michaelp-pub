@@ -62,14 +62,18 @@
         </select>
         </div>
         <div>
-        <label for="">Water Consumption</label>
+        <label for="">Water Consumption (<i style="font-size: 18px;">How many times do you run your dishwasher or washing machine per week?</i>)</label>
 <select name="water" required>
-<option value="">---How many times do you run dishwasher or washing machine?---</option>
+<option value="">---Please select---</option>
 <option value="3">More than 9 times per week</option>
 <option value="2">Between 4 to 9 times per week</option>
 <option value="1">Between 1 to 3 times per week</option>
-<option value="0">Don't have a dishwasher</option>
+<!-- <option value="0">Don't have a dishwasher</option> -->
 </select>
+</div>
+<div>
+  <label for="appliances" style = "font-size: 18px;"><i>- Do you use a dishwasher?</i></label>
+  <input type="checkbox" id = "appliances" name = "appliances">
 </div>
       <button type="submit">Submit</button>
       <span id="submitError" class="error"></span>

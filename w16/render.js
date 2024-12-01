@@ -31,19 +31,17 @@ const renderTblBtn = function(obj, index, data) {
   td.appendChild(btnEdit);
   td.appendChild(btnDel);
 
-  btnDel.addEventListener("click", e => {
+  btnDel.addEventListener("click", (e) => {
     onUpdate(data, index);
   });
-  
-const onUpdate = function(data, index) {
-  data.splice(index, 1);
-  saveToLS(data);
-  renderTbl(data);
-}
 
+  const onUpdate = function (data, index) {
+    data.splice(index, 1);
+    saveToLS(data);
+    renderTbl(data);
+  };
 
-
-  btnEdit.addEventListener("click", e => {
+  btnEdit.addEventListener("click", (e) => {
     FORM.firstName.value = obj.first;
     FORM.lastName.value = obj.last;
     FORM.housem.value = obj.houseMembers;
@@ -51,8 +49,21 @@ const onUpdate = function(data, index) {
     FORM.foods.value = obj.foodChoice;
     FORM.foodSource.value = obj.foodSource;
     FORM.water.value = obj.waterConsumPoints.toString();
+
+    // event listener for checkbox
+    const checkbox = document.querySelector("[name = appliances]");
+    checkbox.checked = false;
+    checkbox.disabled = false;
+    
+    checkbox.addEventListener("change", (e) => {
+      if (checkbox.checked === true) {
+        FORM.water.value = (obj.waterConsumPoints * 2).toString();
+      } else {
+        FORM.water.value = obj.waterConsumPoints.toString();
+      }
+    });
     onUpdate(data, index);
-  })
+  });
   return td;
 }
 
