@@ -75,6 +75,17 @@
   <label for="appliances" style = "font-size: 18px;"><i>- Do you use a dishwasher?</i></label>
   <input type="checkbox" id = "appliances" name = "appliances">
 </div>
+<div>
+  <label for="purchases">Determine how many household purchases of <strong><i>new</i></strong> furniture, electronics, or other household gadgets you make each year</label>
+  <select name="purchase" id="purchase" required>
+    <option value="">---Please Select---</option>
+    <option value="4">More than 7 items</option>
+    <option value="3">Between 5 and 7 items</option>
+    <option value="2">Between 3 and 5 items</option>
+    <option value="1">Less than 3 items</option>
+    <option value="0">Almost nothing / Only secondhand</option>
+  </select>
+</div>
       <button type="submit">Submit</button>
       <span id="submitError" class="error"></span>
     </fieldset>

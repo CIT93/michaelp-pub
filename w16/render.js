@@ -49,6 +49,7 @@ const renderTblBtn = function(obj, index, data) {
     FORM.foods.value = obj.foodChoice;
     FORM.foodSource.value = obj.foodSource;
     FORM.water.value = obj.waterConsumPoints.toString();
+    FORM.purchase.value = obj.purchase;
 
     // event listener for checkbox
     const checkbox = document.querySelector("[name = appliances]");
@@ -86,7 +87,7 @@ const renderTblBody = function(data) {
 
 const calculateAvgPoints = function (data) {
   const totalPoints = data.reduce((sum, obj) => {
-    return sum + obj.houseHoldPoints + obj.houseSizePoints + obj.foodChoicePoints + obj.foodSourcePoints + obj.waterConsumPoints;
+    return sum + obj.houseHoldPoints + obj.houseSizePoints + obj.foodChoicePoints + obj.foodSourcePoints + obj.waterConsumPoints + obj.purchasePoints;
   }, 0);
   const averagePoints = totalPoints / data.length;
   return averagePoints
