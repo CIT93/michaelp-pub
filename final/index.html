@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christmas Countdown</title>
+    <script type="module" defer src="main.js"></script>
+    <script type="module" defer src="countdown.js"></script>
+    <script type="module" defer src="message.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>🎄 Christmas Countdown Calculator 🎁🎅🏼</h1>
+    <fieldset>
+    <div id="liveCountdown"></div>
+  </fieldset>
+    <h2>───────────────────୨ৎ───────────────────</h2>
+    <fieldset>
+    <form id="form">
+      <div id="error"></div>
+      <div>
+        <label for="year">Year:</label>
+        <input type="number" id="yearSelect" name="year" min = 2024 max = 2050 required />
+        <span id="yearSelectError" class="error"></span>
+      </div>
+      <div>
+        <label for="month">Month:</label>
+        <select name="month" id="monthSelect" required>
+          <option value="">---Select Month---</option>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+      </div>
+      <div>
+        <label for="day">Day:</label>
+        <input type="number" id="daySelect" name="day" min="1" max="31" required />
+        <span id="daySelectError" class="error"></span>
+      </div>
+      <button id="submitButton" type="submit">Submit</button>
+      <span id="submitError" class="error"></span>
+    </fieldset>
+    </form>
+    <div id="countdown"></div>
+    <h2>───────────────────୨ৎ───────────────────</h2>
+    <div id="output"></div>
+    <div id="tab-data"></div>
+  </body>
+</html>
